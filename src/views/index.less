@@ -1,0 +1,93 @@
+@color: #31b4d8;
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #182455;
+
+  .layout-left {
+    width: 265px;
+    height: 100%;
+    padding: 20px 40px 10px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: @color;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: transparent;
+    }
+  }
+
+  .main {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px 0 0 20px;
+    box-shadow: -6px 0 12px 24px rgba(0, 0, 0, .1);
+  }
+}
+
+.menu {
+  li {
+    padding: 0 20px;
+    display: block;
+    line-height: 40px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, .4);
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: @color;
+    }
+
+    &.active {
+      color: @color;
+      background-color: #0f1736;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    flex-direction: column;
+
+    .layout-left {
+      width: 100%;
+      padding: 10px;
+      height: 70px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+
+      ul {
+        overflow: hidden;
+
+        li {
+          float: left;
+          width: 110px;
+          line-height: 50px;
+          text-align: center;
+          padding: 0 10px;
+          border-radius: 5px;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .main {
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+}
